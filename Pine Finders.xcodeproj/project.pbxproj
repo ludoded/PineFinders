@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49DE92F84D8CDE2961DC2800 /* Pods_Pine_Finders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C96F33D8D72377CC74AF2BB /* Pods_Pine_Finders.framework */; };
 		B213B8CB1CF5BE9100D94CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8CA1CF5BE9100D94CFC /* AppDelegate.swift */; };
 		B213B8CD1CF5BE9100D94CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8CC1CF5BE9100D94CFC /* ViewController.swift */; };
 		B213B8D01CF5BE9100D94CFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B213B8CE1CF5BE9100D94CFC /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		289DCAFC133630AC1659E7AD /* Pods-Pine Finders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pine Finders.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pine Finders/Pods-Pine Finders.release.xcconfig"; sourceTree = "<group>"; };
+		4C96F33D8D72377CC74AF2BB /* Pods_Pine_Finders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pine_Finders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D79ABED31D1EDBE3C5AADB5 /* Pods-Pine Finders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pine Finders.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pine Finders/Pods-Pine Finders.debug.xcconfig"; sourceTree = "<group>"; };
 		B213B8C71CF5BE9100D94CFC /* Pine Finders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pine Finders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B213B8CA1CF5BE9100D94CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B213B8CC1CF5BE9100D94CFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DE92F84D8CDE2961DC2800 /* Pods_Pine_Finders.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				B213B8C91CF5BE9100D94CFC /* Pine Finders */,
 				B213B8C81CF5BE9100D94CFC /* Products */,
+				F53C9FDBC7336F61E64579F0 /* Pods */,
+				D629467750CAA46EC9EB1DC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = "Pine Finders";
 			sourceTree = "<group>";
 		};
+		D629467750CAA46EC9EB1DC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C96F33D8D72377CC74AF2BB /* Pods_Pine_Finders.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F53C9FDBC7336F61E64579F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D79ABED31D1EDBE3C5AADB5 /* Pods-Pine Finders.debug.xcconfig */,
+				289DCAFC133630AC1659E7AD /* Pods-Pine Finders.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B213B8D91CF5BE9100D94CFC /* Build configuration list for PBXNativeTarget "Pine Finders" */;
 			buildPhases = (
+				F6D50173DDC501DA552DFB91 /* 📦 Check Pods Manifest.lock */,
 				B213B8C31CF5BE9100D94CFC /* Sources */,
 				B213B8C41CF5BE9100D94CFC /* Frameworks */,
 				B213B8C51CF5BE9100D94CFC /* Resources */,
+				C99919FBC90B7B3177CC7C83 /* 📦 Embed Pods Frameworks */,
+				940C2C29483182E98EA20985 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		940C2C29483182E98EA20985 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pine Finders/Pods-Pine Finders-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C99919FBC90B7B3177CC7C83 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pine Finders/Pods-Pine Finders-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6D50173DDC501DA552DFB91 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B213B8C31CF5BE9100D94CFC /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		B213B8DA1CF5BE9100D94CFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D79ABED31D1EDBE3C5AADB5 /* Pods-Pine Finders.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pine Finders/Info.plist";
@@ -260,6 +336,7 @@
 		};
 		B213B8DB1CF5BE9100D94CFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 289DCAFC133630AC1659E7AD /* Pods-Pine Finders.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pine Finders/Info.plist";
