@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		49DE92F84D8CDE2961DC2800 /* Pods_Pine_Finders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C96F33D8D72377CC74AF2BB /* Pods_Pine_Finders.framework */; };
 		B213B8CB1CF5BE9100D94CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8CA1CF5BE9100D94CFC /* AppDelegate.swift */; };
-		B213B8CD1CF5BE9100D94CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8CC1CF5BE9100D94CFC /* ViewController.swift */; };
 		B213B8D01CF5BE9100D94CFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B213B8CE1CF5BE9100D94CFC /* Main.storyboard */; };
 		B213B8D21CF5BE9100D94CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B213B8D11CF5BE9100D94CFC /* Assets.xcassets */; };
 		B213B8D51CF5BE9100D94CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B213B8D31CF5BE9100D94CFC /* LaunchScreen.storyboard */; };
+		B213B8DE1CF5D13200D94CFC /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */; };
+		B2AA80241CF7936200E7D7DF /* VanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA80231CF7936200E7D7DF /* VanViewModel.swift */; };
+		B2AA80261CF796E500E7D7DF /* VansFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */; };
+		B2E688571CF622FE003E7930 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E688561CF622FE003E7930 /* FirebaseManager.swift */; };
+		B2E688591CF62655003E7930 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2E688581CF62655003E7930 /* GoogleService-Info.plist */; };
+		B2E6885B1CF62B36003E7930 /* CarsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */; };
+		B2E6885E1CF62BE0003E7930 /* CarsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6885D1CF62BE0003E7930 /* CarsObject.swift */; };
+		B2E688601CF78418003E7930 /* VansObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6885F1CF78418003E7930 /* VansObject.swift */; };
+		B2E688641CF786CE003E7930 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E688631CF786CE003E7930 /* CarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +29,19 @@
 		9D79ABED31D1EDBE3C5AADB5 /* Pods-Pine Finders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pine Finders.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pine Finders/Pods-Pine Finders.debug.xcconfig"; sourceTree = "<group>"; };
 		B213B8C71CF5BE9100D94CFC /* Pine Finders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pine Finders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B213B8CA1CF5BE9100D94CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B213B8CC1CF5BE9100D94CFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B213B8CF1CF5BE9100D94CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B213B8D11CF5BE9100D94CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B213B8D41CF5BE9100D94CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B213B8D61CF5BE9100D94CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewController.swift; path = Controller/PickerViewController.swift; sourceTree = "<group>"; };
+		B2AA80231CF7936200E7D7DF /* VanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VanViewModel.swift; path = ViewModel/VanViewModel.swift; sourceTree = "<group>"; };
+		B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VansFilterViewController.swift; path = Controller/VansFilterViewController.swift; sourceTree = "<group>"; };
+		B2E688561CF622FE003E7930 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = Model/Networking/FirebaseManager.swift; sourceTree = "<group>"; };
+		B2E688581CF62655003E7930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsFilterViewController.swift; path = Controller/CarsFilterViewController.swift; sourceTree = "<group>"; };
+		B2E6885D1CF62BE0003E7930 /* CarsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsObject.swift; path = Model/Data/CarsObject.swift; sourceTree = "<group>"; };
+		B2E6885F1CF78418003E7930 /* VansObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VansObject.swift; path = Model/Data/VansObject.swift; sourceTree = "<group>"; };
+		B2E688631CF786CE003E7930 /* CarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarViewModel.swift; path = ViewModel/CarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +77,62 @@
 		B213B8C91CF5BE9100D94CFC /* Pine Finders */ = {
 			isa = PBXGroup;
 			children = (
+				B2E688621CF786AF003E7930 /* ViewModel */,
+				B213B8DF1CF5EE0B00D94CFC /* Model */,
+				B213B8DC1CF5D10B00D94CFC /* Controller */,
 				B213B8CA1CF5BE9100D94CFC /* AppDelegate.swift */,
-				B213B8CC1CF5BE9100D94CFC /* ViewController.swift */,
 				B213B8CE1CF5BE9100D94CFC /* Main.storyboard */,
 				B213B8D11CF5BE9100D94CFC /* Assets.xcassets */,
 				B213B8D31CF5BE9100D94CFC /* LaunchScreen.storyboard */,
+				B2E688581CF62655003E7930 /* GoogleService-Info.plist */,
 				B213B8D61CF5BE9100D94CFC /* Info.plist */,
 			);
 			path = "Pine Finders";
+			sourceTree = "<group>";
+		};
+		B213B8DC1CF5D10B00D94CFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */,
+				B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */,
+				B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B213B8DF1CF5EE0B00D94CFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B2E6885C1CF62BB4003E7930 /* Data */,
+				B213B8E01CF5EE0F00D94CFC /* Networking */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B213B8E01CF5EE0F00D94CFC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B2E688561CF622FE003E7930 /* FirebaseManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		B2E6885C1CF62BB4003E7930 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2E6885D1CF62BE0003E7930 /* CarsObject.swift */,
+				B2E6885F1CF78418003E7930 /* VansObject.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		B2E688621CF786AF003E7930 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2E688631CF786CE003E7930 /* CarViewModel.swift */,
+				B2AA80231CF7936200E7D7DF /* VanViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		D629467750CAA46EC9EB1DC4 /* Frameworks */ = {
@@ -150,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B213B8D51CF5BE9100D94CFC /* LaunchScreen.storyboard in Resources */,
+				B2E688591CF62655003E7930 /* GoogleService-Info.plist in Resources */,
 				B213B8D21CF5BE9100D94CFC /* Assets.xcassets in Resources */,
 				B213B8D01CF5BE9100D94CFC /* Main.storyboard in Resources */,
 			);
@@ -210,8 +275,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B213B8CD1CF5BE9100D94CFC /* ViewController.swift in Sources */,
+				B2E688571CF622FE003E7930 /* FirebaseManager.swift in Sources */,
+				B2E688641CF786CE003E7930 /* CarViewModel.swift in Sources */,
+				B213B8DE1CF5D13200D94CFC /* PickerViewController.swift in Sources */,
+				B2AA80261CF796E500E7D7DF /* VansFilterViewController.swift in Sources */,
 				B213B8CB1CF5BE9100D94CFC /* AppDelegate.swift in Sources */,
+				B2E6885E1CF62BE0003E7930 /* CarsObject.swift in Sources */,
+				B2E688601CF78418003E7930 /* VansObject.swift in Sources */,
+				B2AA80241CF7936200E7D7DF /* VanViewModel.swift in Sources */,
+				B2E6885B1CF62B36003E7930 /* CarsFilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pine Finders/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Odessite.Pine-Finders";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -340,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pine Finders/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Odessite.Pine-Finders";
 				PRODUCT_NAME = "$(TARGET_NAME)";
