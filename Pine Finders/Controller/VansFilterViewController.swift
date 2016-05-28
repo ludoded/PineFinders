@@ -14,14 +14,25 @@ class VansFilterViewController: UITableViewController {
     
     private var selectedFilter: VanFilter?
     
+    @IBOutlet weak var manufacturerCell: UITableViewCell!
+    @IBOutlet weak var modelCell: UITableViewCell!
+    @IBOutlet weak var yearsCell: UITableViewCell!
+    @IBOutlet weak var editionCell: UITableViewCell!
+    @IBOutlet weak var maxloadCell: UITableViewCell!
+    
     @IBOutlet weak var manufacturerLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var yearsLabel: UILabel!
     @IBOutlet weak var editionLabel: UILabel!
     @IBOutlet weak var maxloadLabel: UILabel!
     
+    @IBOutlet weak var enter: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.oneResultRemains = foundOnlyVan
+        initialSetup()
         
         MBProgressHUD.showHUDAddedTo(view, animated: true)
         viewModel.loadData {
@@ -53,6 +64,43 @@ class VansFilterViewController: UITableViewController {
         
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showVanEntry" {
+            guard let vc = segue.destinationViewController as? VansEntryViewController else { return }
+            vc.van = viewModel.selectedVan
+        }
+    }
+    
+    private func initialSetup() {
+        enableControls(false, false, false, false, false)
+    }
+    
+    private func foundOnlyVan(van: VansObject) {
+        enableControls(true, true, true, true, true)
+        
+        manufacturerLabel.text = van.van.manufacturer
+        modelLabel.text = van.van.model
+        yearsLabel.text = van.van.yearsProduces
+        editionLabel.text = van.van.edition
+        maxloadLabel.text = van.van.maxloadWeight
+    }
+    
+    private func enableControls(model: Bool, _ years: Bool, _ edition: Bool, _ maxload: Bool, _ enterEnabled: Bool) {
+        if viewModel.selectedVan == nil {
+            modelCell.userInteractionEnabled = model
+            yearsCell.userInteractionEnabled = years
+            editionCell.userInteractionEnabled = edition
+            maxloadCell.userInteractionEnabled = maxload
+            
+            modelLabel.enabled = model
+            yearsLabel.enabled = years
+            editionLabel.enabled = edition
+            maxloadLabel.enabled = maxload
+            
+            enter.enabled = enterEnabled
+        }
+    }
 }
 
 extension VansFilterViewController: PickerDelegate {
@@ -61,22 +109,27 @@ extension VansFilterViewController: PickerDelegate {
         
         switch safeFilter {
         case .Manufacturer:
+            enableControls(true, false, false, false, false)
             let filter = viewModel.filteredManufacturer?[index] ?? ""
             viewModel.manufacturerFilter = filter
             manufacturerLabel.text = filter
         case .Model:
+            enableControls(true, true, false, false, false)
             let filter = viewModel.filteredModels?[index] ?? ""
             viewModel.modelFilter = filter
             modelLabel.text = filter
         case .Years:
+            enableControls(true, true, true, false, false)
             let filter = viewModel.filteredYears?[index] ?? ""
             viewModel.yearsFilter = filter
             yearsLabel.text = filter
         case .Edition:
+            enableControls(true, true, true, true, false)
             let filter = viewModel.filteredEdition?[index] ?? ""
             viewModel.editionFilter = filter
             editionLabel.text = filter
         case .MaxLoad:
+            enableControls(true, true, true, true, true)
             let filter = viewModel.filteredMaxload?[index] ?? ""
             viewModel.maxloadFilter = filter
             maxloadLabel.text = filter

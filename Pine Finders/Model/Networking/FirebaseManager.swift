@@ -30,6 +30,14 @@ class FirebaseManager {
         })
     }
     
+    func saveCar(carID: String, values: [NSObject : AnyObject], completionHandler:(Bool) -> ()) {
+        let carRef = ref.child("Cars").child(carID)
+        
+        carRef.updateChildValues(values) { (error, _) in
+            completionHandler(error == nil)
+        }
+    }
+    
     func vans(completionHandler: ([VansObject]) -> ()) {
         let vanRef = ref.child("Vans")
         var vans = [VansObject]()
@@ -43,6 +51,14 @@ class FirebaseManager {
             
             completionHandler(vans)
         })
+    }
+    
+    func saveVan(vanID: String, values: [NSObject : AnyObject], completionHandler:(Bool) -> ()) {
+        let vanRef = ref.child("Vans").child(vanID)
+        
+        vanRef.updateChildValues(values) { (error, _) in
+            completionHandler(error == nil)
+        }
     }
 }
 

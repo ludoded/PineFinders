@@ -21,7 +21,9 @@ struct VansObject {
 struct Van {
     let manufacturer: String
     let model: String
+    let yearsProduces: String
     let edition: String
+    let maxloadWeight: String
     let loadspaceLength: String
     let loadspaceWidth: String
     let loadspaceHeight: String
@@ -38,7 +40,9 @@ struct Van {
     init(data: [String: AnyObject]) {
         manufacturer = data["Manufacturer"] as! String
         model = data["Model"] as! String
+        yearsProduces = data["Year produced"] as! String
         edition = data["Edition"] as! String
+        maxloadWeight = data["max load weight"] as! String
         loadspaceLength = data["Loadspace Length"] as! String
         loadspaceWidth = data["Loadspace Width"] as! String
         loadspaceHeight = data["Loadspace Height"] as! String

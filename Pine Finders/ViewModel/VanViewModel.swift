@@ -17,9 +17,10 @@ enum VanFilter: Int {
 }
 
 class VanViewModel {
-    
     private var vans = [VansObject]()
     private var filteredVans = [VansObject]()
+    
+    var oneResultRemains: ((VansObject) -> ())?
     
     var filteredManufacturer: [String]?
     var filteredModels: [String]?
@@ -27,35 +28,13 @@ class VanViewModel {
     var filteredEdition: [String]?
     var filteredMaxload: [String]?
     
-    var manufacturerFilter: String? {
-        didSet {
-            filteredVans = filteredVans.filter({ $0.van.manufacturer == manufacturerFilter })
-        }
-    }
+    var selectedVan: VansObject?
     
-    var modelFilter: String? {
-        didSet {
-            filteredVans = filteredVans.filter({ $0.van.model == modelFilter })
-        }
-    }
-    
-    var yearsFilter: String? {
-        didSet {
-            filteredVans = filteredVans.filter({ $0.van.loadspaceWidth == yearsFilter })
-        }
-    }
-    
-    var editionFilter: String? {
-        didSet {
-            filteredVans = filteredVans.filter({ $0.van.edition == editionFilter })
-        }
-    }
-    
-    var maxloadFilter: String? {
-        didSet {
-            filteredVans = filteredVans.filter({ $0.van.rearCargoDoorMaxWidth == modelFilter })
-        }
-    }
+    var manufacturerFilter: String?
+    var modelFilter: String?
+    var yearsFilter: String?
+    var editionFilter: String?
+    var maxloadFilter: String?
     
     func loadData(completionHandler: () -> ()) {
         FirebaseManager.sharedInstance.vans { (vans) in
@@ -66,22 +45,39 @@ class VanViewModel {
     }
     
     func retrieveManufacturers() {
-        filteredManufacturer = uniq(filteredVans.map({ $0.van.manufacturer }))
+        filteredManufacturer = uniq(allFilteredCars().map({ $0.van.manufacturer }))
     }
     
     func retrieveModels() {
-        filteredModels = uniq(filteredVans.map({ $0.van.model }))
+        filteredModels = uniq(allFilteredCars().map({ $0.van.model }))
     }
     
     func retrieveYears() {
-        filteredYears = uniq(filteredVans.map({ $0.van.loadspaceWidth }))
+        filteredYears = uniq(allFilteredCars().map({ $0.van.yearsProduces }))
     }
     
     func retrieveEditions() {
-        filteredEdition = uniq(filteredVans.map({ $0.van.edition }))
+        filteredEdition = uniq(allFilteredCars().map({ $0.van.edition }))
     }
     
     func retrieveMaxloads() {
-        filteredMaxload = uniq(filteredVans.map({ $0.van.rearCargoDoorMaxWidth }))
+        filteredMaxload = uniq(allFilteredCars().map({ $0.van.maxloadWeight }))
+    }
+    
+    private func allFilteredCars() -> [VansObject] {
+        var allFiltered = filteredVans
+        
+        if let safeManufacturerFilter = manufacturerFilter { allFiltered = allFiltered.filter({ $0.van.manufacturer == safeManufacturerFilter }) }
+        if let safeModelFilter = modelFilter { allFiltered = allFiltered.filter({ $0.van.model == safeModelFilter }) }
+        if let safeYearsFilter = yearsFilter { allFiltered = allFiltered.filter({ $0.van.yearsProduces == safeYearsFilter }) }
+        if let safeEditionFilter = editionFilter { allFiltered = allFiltered.filter({ $0.van.edition == safeEditionFilter }) }
+        if let safeMaxloadFilter = maxloadFilter { allFiltered = allFiltered.filter({ $0.van.maxloadWeight == safeMaxloadFilter }) }
+        
+        if allFiltered.count == 1 {
+            oneResultRemains?(allFiltered.first!)
+            selectedVan = allFiltered.first
+        }
+        
+        return allFiltered
     }
 }

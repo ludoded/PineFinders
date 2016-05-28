@@ -21,6 +21,8 @@ class CarViewModel {
     private var cars = [CarsObject]()
     private var filteredCars = [CarsObject]()
     
+    var oneResultRemains: ((CarsObject) -> ())?
+    
     var filteredModels: [String]?
     var filteredMakes: [String]?
     var filteredYears: [String]?
@@ -28,41 +30,14 @@ class CarViewModel {
     var filteredSeats: [String]?
     var filteredBody: [String]?
     
-    var makeFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.make == makeFilter })
-        }
-    }
+    var selectedCar: CarsObject?
     
-    var modelFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.model == modelFilter })
-        }
-    }
-    
-    var yearsFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.yearsProduced == yearsFilter })
-        }
-    }
-    
-    var bodyFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.body == bodyFilter })
-        }
-    }
-    
-    var doorsFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.doors == doorsFilter })
-        }
-    }
-    
-    var seatsFilter: String? {
-        didSet {
-            filteredCars = filteredCars.filter({ $0.car.seats == seatsFilter })
-        }
-    }
+    var makeFilter: String?
+    var modelFilter: String?
+    var yearsFilter: String?
+    var bodyFilter: String?
+    var doorsFilter: String?
+    var seatsFilter: String?
     
     func loadData(completionHandler: () -> ()) {
         FirebaseManager.sharedInstance.cars { (cars) in
@@ -73,26 +48,44 @@ class CarViewModel {
     }
     
     func retrieveMakes() {
-        filteredMakes = uniq(filteredCars.map({ $0.car.make }))
+        filteredMakes = uniq(allFilteredCars().map({ $0.car.make }))
     }
     
     func retrieveModels() {
-        filteredModels = uniq(filteredCars.map({ $0.car.model }))
+        filteredModels = uniq(allFilteredCars().map({ $0.car.model }))
     }
     
     func retrieveYears() {
-        filteredYears = uniq(filteredCars.map({ $0.car.yearsProduced }))
+        filteredYears = uniq(allFilteredCars().map({ $0.car.yearsProduced }))
     }
     
     func retrieveBody() {
-        filteredBody = uniq(filteredCars.map({ $0.car.body }))
+        filteredBody = uniq(allFilteredCars().map({ $0.car.body }))
     }
     
     func retrieveDoors() {
-        filteredDoors = uniq(filteredCars.map({ $0.car.doors }))
+        filteredDoors = uniq(allFilteredCars().map({ $0.car.doors }))
     }
     
     func retrieveSeats() {
-        filteredSeats = uniq(filteredCars.map({ $0.car.seats }))
+        filteredSeats = uniq(allFilteredCars().map({ $0.car.seats }))
+    }
+    
+    private func allFilteredCars() -> [CarsObject] {
+        var allFiltered = filteredCars
+        
+        if let safeMakeFilter = makeFilter { allFiltered = allFiltered.filter({ $0.car.make == safeMakeFilter }) }
+        if let safeModelFilter = modelFilter { allFiltered = allFiltered.filter({ $0.car.model == safeModelFilter }) }
+        if let safeyearsFilter = yearsFilter { allFiltered = allFiltered.filter({ $0.car.yearsProduced == safeyearsFilter }) }
+        if let safeBodyFilter = bodyFilter { allFiltered = allFiltered.filter({ $0.car.body == safeBodyFilter }) }
+        if let safeDoorsFilter = doorsFilter { allFiltered = allFiltered.filter({ $0.car.doors == safeDoorsFilter }) }
+        if let safeSeatsFilter = seatsFilter { allFiltered = allFiltered.filter({ $0.car.seats == safeSeatsFilter }) }
+        
+        if allFiltered.count == 1 {
+            oneResultRemains?(allFiltered.first!)
+            selectedCar = allFiltered.first
+        }
+        
+        return allFiltered
     }
 }

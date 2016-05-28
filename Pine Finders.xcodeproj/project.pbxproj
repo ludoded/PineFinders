@@ -13,8 +13,12 @@
 		B213B8D21CF5BE9100D94CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B213B8D11CF5BE9100D94CFC /* Assets.xcassets */; };
 		B213B8D51CF5BE9100D94CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B213B8D31CF5BE9100D94CFC /* LaunchScreen.storyboard */; };
 		B213B8DE1CF5D13200D94CFC /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */; };
+		B2A8A7101CF9F12C0091B501 /* VanEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8A70F1CF9F12C0091B501 /* VanEntryViewModel.swift */; };
 		B2AA80241CF7936200E7D7DF /* VanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA80231CF7936200E7D7DF /* VanViewModel.swift */; };
 		B2AA80261CF796E500E7D7DF /* VansFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */; };
+		B2AA802A1CF9C17100E7D7DF /* CarsEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA80291CF9C17100E7D7DF /* CarsEntryViewController.swift */; };
+		B2AA802C1CF9C2C800E7D7DF /* CarEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA802B1CF9C2C800E7D7DF /* CarEntryViewModel.swift */; };
+		B2AA802E1CF9C91500E7D7DF /* VansEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA802D1CF9C91500E7D7DF /* VansEntryViewController.swift */; };
 		B2E688571CF622FE003E7930 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E688561CF622FE003E7930 /* FirebaseManager.swift */; };
 		B2E688591CF62655003E7930 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2E688581CF62655003E7930 /* GoogleService-Info.plist */; };
 		B2E6885B1CF62B36003E7930 /* CarsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */; };
@@ -34,8 +38,12 @@
 		B213B8D41CF5BE9100D94CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B213B8D61CF5BE9100D94CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewController.swift; path = Controller/PickerViewController.swift; sourceTree = "<group>"; };
+		B2A8A70F1CF9F12C0091B501 /* VanEntryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VanEntryViewModel.swift; path = ViewModel/VanEntryViewModel.swift; sourceTree = "<group>"; };
 		B2AA80231CF7936200E7D7DF /* VanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VanViewModel.swift; path = ViewModel/VanViewModel.swift; sourceTree = "<group>"; };
 		B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VansFilterViewController.swift; path = Controller/VansFilterViewController.swift; sourceTree = "<group>"; };
+		B2AA80291CF9C17100E7D7DF /* CarsEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsEntryViewController.swift; path = Controller/CarsEntryViewController.swift; sourceTree = "<group>"; };
+		B2AA802B1CF9C2C800E7D7DF /* CarEntryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarEntryViewModel.swift; path = ViewModel/CarEntryViewModel.swift; sourceTree = "<group>"; };
+		B2AA802D1CF9C91500E7D7DF /* VansEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VansEntryViewController.swift; path = Controller/VansEntryViewController.swift; sourceTree = "<group>"; };
 		B2E688561CF622FE003E7930 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseManager.swift; path = Model/Networking/FirebaseManager.swift; sourceTree = "<group>"; };
 		B2E688581CF62655003E7930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarsFilterViewController.swift; path = Controller/CarsFilterViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +104,8 @@
 				B213B8DD1CF5D13200D94CFC /* PickerViewController.swift */,
 				B2E6885A1CF62B36003E7930 /* CarsFilterViewController.swift */,
 				B2AA80251CF796E500E7D7DF /* VansFilterViewController.swift */,
+				B2AA80291CF9C17100E7D7DF /* CarsEntryViewController.swift */,
+				B2AA802D1CF9C91500E7D7DF /* VansEntryViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -131,6 +141,8 @@
 			children = (
 				B2E688631CF786CE003E7930 /* CarViewModel.swift */,
 				B2AA80231CF7936200E7D7DF /* VanViewModel.swift */,
+				B2AA802B1CF9C2C800E7D7DF /* CarEntryViewModel.swift */,
+				B2A8A70F1CF9F12C0091B501 /* VanEntryViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -277,13 +289,17 @@
 			files = (
 				B2E688571CF622FE003E7930 /* FirebaseManager.swift in Sources */,
 				B2E688641CF786CE003E7930 /* CarViewModel.swift in Sources */,
+				B2AA802A1CF9C17100E7D7DF /* CarsEntryViewController.swift in Sources */,
 				B213B8DE1CF5D13200D94CFC /* PickerViewController.swift in Sources */,
+				B2AA802C1CF9C2C800E7D7DF /* CarEntryViewModel.swift in Sources */,
+				B2AA802E1CF9C91500E7D7DF /* VansEntryViewController.swift in Sources */,
 				B2AA80261CF796E500E7D7DF /* VansFilterViewController.swift in Sources */,
 				B213B8CB1CF5BE9100D94CFC /* AppDelegate.swift in Sources */,
 				B2E6885E1CF62BE0003E7930 /* CarsObject.swift in Sources */,
 				B2E688601CF78418003E7930 /* VansObject.swift in Sources */,
 				B2AA80241CF7936200E7D7DF /* VanViewModel.swift in Sources */,
 				B2E6885B1CF62B36003E7930 /* CarsFilterViewController.swift in Sources */,
+				B2A8A7101CF9F12C0091B501 /* VanEntryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
