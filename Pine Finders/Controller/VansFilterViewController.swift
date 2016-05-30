@@ -18,13 +18,11 @@ class VansFilterViewController: UITableViewController {
     @IBOutlet weak var modelCell: UITableViewCell!
     @IBOutlet weak var yearsCell: UITableViewCell!
     @IBOutlet weak var editionCell: UITableViewCell!
-    @IBOutlet weak var maxloadCell: UITableViewCell!
     
     @IBOutlet weak var manufacturerLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var yearsLabel: UILabel!
     @IBOutlet weak var editionLabel: UILabel!
-    @IBOutlet weak var maxloadLabel: UILabel!
     
     @IBOutlet weak var enter: UIBarButtonItem!
     
@@ -54,8 +52,6 @@ class VansFilterViewController: UITableViewController {
             viewModel.retrieveYears()
         case .Edition:
             viewModel.retrieveEditions()
-        case .MaxLoad:
-            viewModel.retrieveMaxloads()
         }
         
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("PickerViewController") as? PickerViewController else { fatalError("Can't load the picker") }
@@ -73,30 +69,27 @@ class VansFilterViewController: UITableViewController {
     }
     
     private func initialSetup() {
-        enableControls(false, false, false, false, false)
+        enableControls(false, false, false, false)
     }
     
     private func foundOnlyVan(van: VansObject) {
-        enableControls(true, true, true, true, true)
+        enableControls(true, true, true, true)
         
         manufacturerLabel.text = van.van.manufacturer
         modelLabel.text = van.van.model
         yearsLabel.text = van.van.yearsProduces
         editionLabel.text = van.van.edition
-        maxloadLabel.text = van.van.maxloadWeight
     }
     
-    private func enableControls(model: Bool, _ years: Bool, _ edition: Bool, _ maxload: Bool, _ enterEnabled: Bool) {
+    private func enableControls(model: Bool, _ years: Bool, _ edition: Bool, _ enterEnabled: Bool) {
         if viewModel.selectedVan == nil {
             modelCell.userInteractionEnabled = model
             yearsCell.userInteractionEnabled = years
             editionCell.userInteractionEnabled = edition
-            maxloadCell.userInteractionEnabled = maxload
             
             modelLabel.enabled = model
             yearsLabel.enabled = years
             editionLabel.enabled = edition
-            maxloadLabel.enabled = maxload
             
             enter.enabled = enterEnabled
         }
@@ -109,30 +102,25 @@ extension VansFilterViewController: PickerDelegate {
         
         switch safeFilter {
         case .Manufacturer:
-            enableControls(true, false, false, false, false)
+            enableControls(true, false, false, false)
             let filter = viewModel.filteredManufacturer?[index] ?? ""
             viewModel.manufacturerFilter = filter
             manufacturerLabel.text = filter
         case .Model:
-            enableControls(true, true, false, false, false)
+            enableControls(true, true, false, false)
             let filter = viewModel.filteredModels?[index] ?? ""
             viewModel.modelFilter = filter
             modelLabel.text = filter
         case .Years:
-            enableControls(true, true, true, false, false)
+            enableControls(true, true, true, false)
             let filter = viewModel.filteredYears?[index] ?? ""
             viewModel.yearsFilter = filter
             yearsLabel.text = filter
         case .Edition:
-            enableControls(true, true, true, true, false)
+            enableControls(true, true, true, true)
             let filter = viewModel.filteredEdition?[index] ?? ""
             viewModel.editionFilter = filter
             editionLabel.text = filter
-        case .MaxLoad:
-            enableControls(true, true, true, true, true)
-            let filter = viewModel.filteredMaxload?[index] ?? ""
-            viewModel.maxloadFilter = filter
-            maxloadLabel.text = filter
         }
     }
 }
@@ -150,8 +138,6 @@ extension VansFilterViewController: PickerDataSource {
             return viewModel.filteredYears?[index] ?? ""
         case .Edition:
             return viewModel.filteredEdition?[index] ?? ""
-        case .MaxLoad:
-            return viewModel.filteredMaxload?[index] ?? ""
         }
     }
     
@@ -167,8 +153,6 @@ extension VansFilterViewController: PickerDataSource {
             return viewModel.filteredYears?.count ?? 0
         case .Edition:
             return viewModel.filteredEdition?.count ?? 0
-        case .MaxLoad:
-            return viewModel.filteredMaxload?.count ?? 0
         }
     }
 }

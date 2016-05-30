@@ -18,6 +18,7 @@ class VansEntryViewController: UITableViewController {
     @IBOutlet weak var internalHeight: SkyFloatingLabelTextField!
     @IBOutlet weak var internalWidth: SkyFloatingLabelTextField!
     @IBOutlet weak var internalDeep: SkyFloatingLabelTextField!
+    @IBOutlet weak var maxLoadWeight: SkyFloatingLabelTextField!
     
     @IBAction func save(_: UIBarButtonItem) {
         viewModel.save(van!,
@@ -25,7 +26,8 @@ class VansEntryViewController: UITableViewController {
                        input2: entranceWidth.text ?? "",
                        input3: internalHeight.text ?? "",
                        input4: internalWidth.text ?? "",
-                       input5: internalDeep.text ?? ""
+                       input5: internalDeep.text ?? "",
+                       input6: maxLoadWeight.text ?? ""
         ) { success in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
@@ -55,6 +57,9 @@ extension VansEntryViewController: UITextFieldDelegate {
         }
         else if textField == internalWidth {
             return internalDeep.becomeFirstResponder()
+        }
+        else if textField == internalDeep {
+            return maxLoadWeight.becomeFirstResponder()
         }
         else {
             return textField.resignFirstResponder()

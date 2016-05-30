@@ -23,7 +23,6 @@ struct Van {
     let model: String
     let yearsProduces: String
     let edition: String
-    let maxloadWeight: String
     let loadspaceLength: String
     let loadspaceWidth: String
     let loadspaceHeight: String
@@ -35,6 +34,7 @@ struct Van {
     var input3: String
     var input4: String
     var input5: String
+    var input6: String
     var complete: String
     
     init(data: [String: AnyObject]) {
@@ -42,7 +42,6 @@ struct Van {
         model = data["Model"] as! String
         yearsProduces = data["Year produced"] as! String
         edition = data["Edition"] as! String
-        maxloadWeight = data["max load weight"] as! String
         loadspaceLength = data["Loadspace Length"] as! String
         loadspaceWidth = data["Loadspace Width"] as! String
         loadspaceHeight = data["Loadspace Height"] as! String
@@ -54,6 +53,7 @@ struct Van {
         input3 = data["input 3"] as! String
         input4 = data["input 4"] as! String
         input5 = data["input 5"] as! String
+        input6 = data["input 6"] as! String
         complete = data["Complete"] as! String
     }
 }

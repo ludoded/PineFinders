@@ -9,13 +9,14 @@
 import Foundation
 
 class VanEntryViewModel {
-    func save(van: VansObject, input1: String, input2: String, input3: String, input4: String, input5: String, completionHandler: (Bool) -> ()) {
+    func save(van: VansObject, input1: String, input2: String, input3: String, input4: String, input5: String, input6: String, completionHandler: (Bool) -> ()) {
         let params = [
             "input 1" : input1,
             "input 2" : input2,
             "input 3" : input3,
             "input 4" : input4,
             "input 5" : input5,
+            "input 6" : input6,
             "Complete" : "true"
         ]
         

@@ -13,7 +13,6 @@ enum VanFilter: Int {
     case Model
     case Years
     case Edition
-    case MaxLoad
 }
 
 class VanViewModel {
@@ -26,7 +25,6 @@ class VanViewModel {
     var filteredModels: [String]?
     var filteredYears: [String]?
     var filteredEdition: [String]?
-    var filteredMaxload: [String]?
     
     var selectedVan: VansObject?
     
@@ -34,7 +32,6 @@ class VanViewModel {
     var modelFilter: String?
     var yearsFilter: String?
     var editionFilter: String?
-    var maxloadFilter: String?
     
     func loadData(completionHandler: () -> ()) {
         FirebaseManager.sharedInstance.vans { (vans) in
@@ -60,10 +57,6 @@ class VanViewModel {
         filteredEdition = uniq(allFilteredCars().map({ $0.van.edition }))
     }
     
-    func retrieveMaxloads() {
-        filteredMaxload = uniq(allFilteredCars().map({ $0.van.maxloadWeight }))
-    }
-    
     private func allFilteredCars() -> [VansObject] {
         var allFiltered = filteredVans
         
@@ -71,7 +64,6 @@ class VanViewModel {
         if let safeModelFilter = modelFilter { allFiltered = allFiltered.filter({ $0.van.model == safeModelFilter }) }
         if let safeYearsFilter = yearsFilter { allFiltered = allFiltered.filter({ $0.van.yearsProduces == safeYearsFilter }) }
         if let safeEditionFilter = editionFilter { allFiltered = allFiltered.filter({ $0.van.edition == safeEditionFilter }) }
-        if let safeMaxloadFilter = maxloadFilter { allFiltered = allFiltered.filter({ $0.van.maxloadWeight == safeMaxloadFilter }) }
         
         if allFiltered.count == 1 {
             oneResultRemains?(allFiltered.first!)
