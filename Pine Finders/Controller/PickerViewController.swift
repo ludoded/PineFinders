@@ -37,8 +37,16 @@ class PickerViewController: UIViewController {
 }
 
 extension PickerViewController: UIPickerViewDelegate {
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource?.itemTitleForIndex(row)
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        let label = UILabel()
+        label.backgroundColor = .clearColor()
+        label.textColor = .blackColor()
+        label.text = dataSource?.itemTitleForIndex(row)
+        label.font = UIFont.systemFontOfSize(17)
+        label.minimumScaleFactor = 0.5
+        label.sizeToFit()
+        
+        return label
     }
 }
 
